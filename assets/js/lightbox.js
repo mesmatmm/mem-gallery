@@ -148,7 +148,10 @@ class Lightbox {
     updateImage(item) {
         if (!this.lightboxImage || !this.lightboxCaption) return;
 
-        const displaySrc = item.fullImage || item.image;
+        // fullImage points to the gitignored originals folder — not available on GitHub Pages.
+        // Fall back to the optimized WebP (1920px) which is always committed.
+        const displaySrc = item.image;
+        this.lightboxImage.onerror = null;
 
         const applyContent = () => {
             this.lightboxImage.src = displaySrc;
