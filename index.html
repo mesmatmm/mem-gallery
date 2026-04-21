@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MEM Gallery - A minimalist photography portfolio showcasing high-quality visual work.">
+    <meta name="keywords" content="photography, portfolio, gallery, portrait, landscape">
+    <meta name="author" content="MEM Gallery">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="MEM Gallery - Photography Portfolio">
+    <meta property="og:description" content="Explore a curated collection of stunning photography work.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://username.github.io/mem-gallery/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MEM Gallery">
+    <meta name="twitter:description" content="A minimalist photography portfolio.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%230f0f0f'/><circle cx='50' cy='42' r='22' fill='none' stroke='%23c9a96e' stroke-width='6'/><circle cx='50' cy='42' r='8' fill='%23c9a96e'/><rect x='22' y='70' width='56' height='6' rx='2' fill='%23c9a96e'/></svg>" type="image/svg+xml">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "MEM Gallery",
+        "description": "A minimalist photography portfolio",
+        "url": "https://username.github.io/mem-gallery/"
+    }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/featured-animations.css">
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <title>MEM Gallery - Photography Portfolio</title>
+</head>
+<body>
+    <!-- Skip to Content Link (Accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="index.html">MEM Gallery</a>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+
+            <button class="music-toggle" id="musicToggle" aria-label="Toggle background music" title="Toggle music">
+                <svg id="musicIconOn" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3v10.55A4 4 0 1014 17V7h4V3h-6z"/>
+                </svg>
+                <svg id="musicIconOff" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+                    <path d="M12 3v10.55A4 4 0 1014 17V7h4V3h-6z" opacity="0.3"/>
+                    <line x1="3" y1="3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-slideshow" id="heroSlideshow"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <p class="hero-subtitle">Visual storytelling through light and moment</p>
+                <h1>MEM Gallery</h1>
+                <p class="tagline">Framing life, one moment at a time</p>
+                <div class="hero-buttons">
+                    <a href="gallery.html" class="btn btn-primary">View Gallery</a>
+                    <a href="about.html" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Section -->
+        <section class="featured-section">
+            <div class="container">
+                <h2>Featured Work</h2>
+                <p class="section-subtitle">Explore a curated selection of recent photography</p>
+
+                <div class="featured-grid" id="featuredGrid">
+                    <!-- Featured images will be populated by JavaScript -->
+                </div>
+
+                <div class="see-all-btn">
+                    <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curated Series Section -->
+        <section class="curated-section" id="curatedSection" style="display: none;">
+            <div class="container">
+                <h2>A Curated Series</h2>
+                <p class="section-subtitle" id="curatedDescription">Hand-picked moments from my favorite captures</p>
+                <div class="curated-grid" id="curatedGrid">
+                    <!-- Curated images will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section" id="statsSection">
+            <div class="container">
+                <div class="stats-grid" id="statsGrid">
+                    <div class="stat-item" data-stat="total">
+                        <span class="stat-number" data-target="0">0</span>
+                        <span class="stat-label">Photos</span>
+                    </div>
+                    <div class="stat-item" data-stat="architecture">
+                        <span class="stat-number" data-target="0">0</span>
+                        <span class="stat-label">Architecture</span>
+                    </div>
+                    <div class="stat-item" data-stat="landscape">
+                        <span class="stat-number" data-target="0">0</span>
+                        <span class="stat-label">Landscape</span>
+                    </div>
+                    <div class="stat-item" data-stat="street">
+                        <span class="stat-number" data-target="0">0</span>
+                        <span class="stat-label">Street</span>
+                    </div>
+                    <div class="stat-item" data-stat="collections">
+                        <span class="stat-number" data-target="0">0</span>
+                        <span class="stat-label">Collections</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">MEM Gallery</span>
+                <span class="footer-copy">&nbsp;&copy; 2026</span>
+            </div>
+
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="index.html">Home</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="footer-social">
+                <a href="https://www.instagram.com/mahmoud.e.m/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon social-icon--instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
+                        <path d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm4.965-10.322a1.44 1.44 0 11-2.881 0 1.44 1.44 0 012.881 0z"/>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/mahmoud.esmat.m" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon social-icon--facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@mesmatm" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-icon social-icon--tiktok">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.78a4.85 4.85 0 01-1.01-.09z"/>
+                    </svg>
+                </a>
+                <a href="mailto:mahmoudesmatm@gmail.com" aria-label="Email" class="social-icon social-icon--email">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 MEM Gallery. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP Library for Advanced Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+    </script>
+
+    <!-- Site Scripts -->
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/gallery.js"></script>
+    <script src="assets/js/featured.js"></script>
+    <script src="assets/js/transitions.js"></script>
+    <script src="assets/js/typewriter.js"></script>
+
+    <!-- Background Music -->
+    <script src="assets/js/music.js"></script>
+
+    <!-- Stats Section -->
+    <script>
+    (function () {
+        function buildStats() {
+            if (typeof galleryData === 'undefined') return;
+
+            const cats = {};
+            const folders = new Set();
+            galleryData.forEach(d => {
+                cats[d.category] = (cats[d.category] || 0) + 1;
+                folders.add(d.folder);
+            });
+
+            const targets = {
+                total:        galleryData.length,
+                architecture: cats.architecture || 0,
+                landscape:    cats.landscape    || 0,
+                street:       cats.street       || 0,
+                collections:  folders.size
+            };
+
+            document.querySelectorAll('.stat-item[data-stat]').forEach(item => {
+                const key = item.dataset.stat;
+                if (key in targets) {
+                    item.querySelector('.stat-number').dataset.target = targets[key];
+                }
+            });
+        }
+
+        function countUp(el, target, duration) {
+            const start = performance.now();
+            function tick(now) {
+                const p = Math.min((now - start) / duration, 1);
+                const ease = 1 - Math.pow(1 - p, 3);
+                el.textContent = Math.round(ease * target);
+                if (p < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+
+        function animateVisible(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const item = entry.target;
+                const numEl = item.querySelector('.stat-number');
+                const target = parseInt(numEl.dataset.target, 10);
+                item.classList.add('visible');
+                countUp(numEl, target, 1200);
+                observer.unobserve(item);
+            });
+        }
+
+        function init() {
+            buildStats();
+            const items = document.querySelectorAll('.stat-item[data-stat]');
+            const observer = new IntersectionObserver(animateVisible, { threshold: 0.3 });
+            items.forEach((item, i) => {
+                item.style.transitionDelay = (i * 0.1) + 's';
+                observer.observe(item);
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+    </script>
+
+    <!-- Hero Slideshow -->
+    <script>
+    (function () {
+        const SLIDE_INTERVAL = 6000; // ms between slides
+        const SLIDE_COUNT    = 8;    // how many photos to show
+
+        function initSlideshow() {
+            const container = document.getElementById('heroSlideshow');
+            if (!container || typeof galleryData === 'undefined') return;
+
+            // Pick one random image per folder, then shuffle and take SLIDE_COUNT
+            const byFolder = {};
+            galleryData.forEach(item => {
+                if (!byFolder[item.folder]) byFolder[item.folder] = [];
+                byFolder[item.folder].push(item);
+            });
+
+            const picks = Object.values(byFolder)
+                .map(arr => arr[Math.floor(Math.random() * arr.length)])
+                .sort(() => Math.random() - 0.5)
+                .slice(0, SLIDE_COUNT);
+
+            if (picks.length === 0) return;
+
+            // Build slide elements
+            picks.forEach((item, i) => {
+                const slide = document.createElement('div');
+                slide.className = 'hero-slide' + (i === 0 ? ' active' : '');
+                slide.style.backgroundImage = `url('${item.image}')`;
+                // Preload next image lazily
+                if (i > 0) {
+                    const img = new Image();
+                    img.src = item.image;
+                }
+                container.appendChild(slide);
+            });
+
+            // Cycle slides
+            let current = 0;
+            setInterval(() => {
+                const slides = container.querySelectorAll('.hero-slide');
+                slides[current].classList.remove('active');
+                current = (current + 1) % slides.length;
+                slides[current].classList.add('active');
+            }, SLIDE_INTERVAL);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSlideshow);
+        } else {
+            initSlideshow();
+        }
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "mem-gallery",
+  "version": "1.0.0",
+  "description": "MEM Gallery - Photography Portfolio",
+  "scripts": {
+    "admin": "node start-admin.js",
+    "generate": "node generate-gallery-data.js",
+    "optimize": "node optimize-images.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "sharp": "^0.33.5"
+  }
+}
