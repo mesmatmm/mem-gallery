@@ -80,7 +80,10 @@
 
         grid.innerHTML = '';
 
-        galleryData.forEach((item, index) => {
+        // Shuffle once so "All" navigation cycles through mixed folders, not folder-by-folder
+        const shuffled = [...galleryData].sort(() => Math.random() - 0.5);
+
+        shuffled.forEach((item, index) => {
             const el = document.createElement('article');
             el.className = 'gallery-item scroll-animate';
             el.dataset.folder   = item.folder;
@@ -106,7 +109,7 @@
         });
 
         allItems     = Array.from(grid.querySelectorAll('.gallery-item'));
-        filteredData = [...galleryData];
+        filteredData = [...shuffled];
         window.galleryData = filteredData;
     }
 
